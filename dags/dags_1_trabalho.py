@@ -9,14 +9,14 @@ from datetime import datetime, timedelta
 URL = "https://raw.githubusercontent.com/neylsoncrepalde/titanic_data_with_semicolon/main/titanic.csv"
 
 default_args = {
-    'owner': "evelyn",
+    'owner': "Evelyn",
     "depends_on_past": False,
     'start_date': datetime(2022, 10, 9)
 }
 
 
-@dag(default_args=default_args, schedule_interval='@once', catchup=False, tags=['DAG1'])
-def trabalho02_dag01():
+@dag(default_args=default_args, schedule_interval='@once', catchup=False, tags=['dags1'])
+def dags_1_trabalho():
 
     @task
     def cap_dados():
@@ -88,4 +88,4 @@ def trabalho02_dag01():
                      sibsp_parch] >> tab_final >> fim >> triggerdag
 
 
-execucao = trabalho02_dag01()
+execucao = dags_1_trabalho()
